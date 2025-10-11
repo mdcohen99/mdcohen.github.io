@@ -185,6 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="so-who-is-actually-good-at-football-in-the-big-ten-turns-out-its-not-the-school-youre-thinking-of." class="level1">
+<h1>So who is actually good at football in the Big Ten? Turns out, it’s not the school you’re thinking of.</h1>
 <p>Loading libraries and data first</p>
 <div class="cell">
 <details class="code-fold">
@@ -262,9 +264,8 @@ date  (1): Date
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>bigten2025 <span class="ot">&lt;-</span> logs2025 <span class="sc">|&gt;</span> <span class="fu">filter</span>(TeamFull <span class="sc">%in%</span> big10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<h3 class="anchored">
-Finding the best scoring offense
-</h3>
+<section id="finding-the-big-tens-best-scoring-offenses" class="level3">
+<h3 class="anchored" data-anchor-id="finding-the-big-tens-best-scoring-offenses">Finding the Big Ten’s best scoring offenses</h3>
 <p>To be clear, this is not a fan blog. We here at this publication dedicated to whatever Derek assigned me to do this week are committed to impactful journalism with complete and utter objectivity.</p>
 <p>But the author of this post did attend Indiana University for his undergrad years, and may have a bit of a soft spot for this specific dataset which is just 2024 and 2025 data and — as of writing this post before Indiana plays Oregon this weekend — this is undoubtedly the most incredible stretch of Indiana football success in the history of the program. It isn’t even close for the team with the most losses in the history of the sport at a Division I level. So given the rare opportunity we have to discuss Hoosier football glory, let’s see just how good Indiana has been relative to a league that has produced the last two national champions and three of the last four teams to play in the national title game (Indiana beat two of those teams during the span of this dataset).</p>
 <p>Okay maybe this is actually a fan blog.</p>
@@ -279,7 +280,7 @@ Finding the best scoring offense
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(TeamFull, points_per_game), <span class="at">y =</span> points_per_game)) <span class="sc">+</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#990000"</span>) <span class="sc">+</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Indiana lead Big Ten scoring offenses in 2024... by a lot"</span>, <span class="at">subtitle =</span> <span class="st">"Five Big Ten surpassed 30 point per game averages in the 2024 season. Four of them made the College Football Playoff. But only one team — Indiana — surpassed the 40 point per game threshold."</span>, <span class="at">y =</span> <span class="st">"Points per game"</span>, <span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Indiana leads Big Ten scoring offenses in 2024... by a lot"</span>, <span class="at">subtitle =</span> <span class="st">"Five Big Ten surpassed 30 point per game averages in the 2024 season. Four of them made the College Football Playoff. But only one team — Indiana — surpassed the 40 point per game threshold."</span>, <span class="at">y =</span> <span class="st">"Points per game"</span>, <span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
@@ -297,9 +298,135 @@ Finding the best scoring offense
 </div>
 </div>
 </div>
-<p>Indiana averaged 41.31 points per game in 2024. That’s the clear leader among Big Ten teams (for what it’s worth, that was also second best nationally behind Miami — and nothing at all went wrong for Miami in 2024 obviously!). The next closest is Ohio State at 35.69. That’s certainly a notable gap! Should we mention that Ohio State still beat Indiana and went on to win the national championship? I guess that’s probably important to note that scoring a lot of points doesn’t make you the BEST team. But it doesn’t hurt!</p>
+<p>Indiana averaged 41.31 points per game in 2024. That’s the clear leader among Big Ten teams (for what it’s worth, that was also second best nationally behind Miami — and nothing at all went wrong for Miami in 2024 obviously!). The next closest is Ohio State at 35.69. That’s certainly a notable gap!</p>
+<p>Should we mention that Ohio State still beat Indiana and went on to win the national championship? I guess that’s probably important to note that scoring a lot of points doesn’t make you the BEST team. But it doesn’t hurt!</p>
+<p>Now let’s look at 2025. What changed, if anything?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bigten2025 <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TeamFull) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">points_per_game =</span> <span class="fu">mean</span>(Points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(points_per_game)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(TeamFull, points_per_game), <span class="at">y =</span> points_per_game)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#990000"</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"New faces join the Big Ten's top scoring offenses."</span>, <span class="at">subtitle =</span> <span class="st">"USC currently leads the Big Ten in scoring offense, but some less regarded teams like Nebraska have made big surges in 2025 compared to a season ago. Indiana still remains in the top two. But this time is indeed two."</span>, <span class="at">y =</span> <span class="st">"Points per game"</span>, <span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">size =</span> <span class="dv">9</span>, <span class="at">face =</span> <span class="st">"plain"</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">face =</span> <span class="st">"italic"</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are also a lot big scoring numbers at the top of the chart here. There are four teams averaging more than 40 points so far this year.</p>
+<p>So is scoring up this year?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b1g2025ptsavg <span class="ot">&lt;-</span> bigten2025 <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgpts =</span> <span class="fu">mean</span>(Points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(avgpts)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>b1g2024ptsavg <span class="ot">&lt;-</span> bigten2024 <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgpts =</span> <span class="fu">mean</span>(Points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(avgpts)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>pct_change <span class="ot">&lt;-</span> ((b1g2025ptsavg <span class="sc">-</span> b1g2024ptsavg) <span class="sc">/</span> b1g2024ptsavg) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>avg_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">c</span>(<span class="dv">2024</span>, <span class="dv">2025</span>),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Average =</span> <span class="fu">c</span>(b1g2024ptsavg, b1g2025ptsavg)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(avg_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Year), <span class="at">y =</span> Average, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#990000"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"#990000"</span>) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Scoring in the Big Ten is up in 2025"</span>,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"But this data isn't balanced yet. It is comparing the full 2024 season against the first five games in 2025."</span>,</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Points"</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">size =</span> <span class="dv">9</span>, <span class="at">face =</span> <span class="st">"plain"</span>),</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">face =</span> <span class="st">"italic"</span>),</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Scoring is up about 27% in the Big Ten this year. Granted, most of the games played are still non-conference games so we can’t really compare that number too much given the higher unbalanced sample size of cupcake games relative to power conference opponents.</p>
+<p>So let’s check that out.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b1g2025ptsavg <span class="ot">&lt;-</span> bigten2025 <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgpts =</span> <span class="fu">mean</span>(Points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(avgpts)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>adjustedb1g2024ptsavg <span class="ot">&lt;-</span> bigten2024 <span class="sc">|&gt;</span> <span class="fu">filter</span>(Gtm <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgpts =</span> <span class="fu">mean</span>(Points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(avgpts)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>adjusted_pct_change <span class="ot">&lt;-</span> ((b1g2025ptsavg<span class="sc">-</span>adjustedb1g2024ptsavg)<span class="sc">/</span>adjustedb1g2024ptsavg)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>avg_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">c</span>(<span class="dv">2024</span>, <span class="dv">2025</span>),</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Average =</span> <span class="fu">c</span>(adjustedb1g2024ptsavg, b1g2025ptsavg)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(avg_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Year), <span class="at">y =</span> Average, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#990000"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"#990000"</span>) <span class="sc">+</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Even with adjusted data, scoring is still up in 2025"</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Through the first five games of both the 2024 and 2025 seasons, this year's average scoring in the Big Ten is up by about five points per game."</span>,</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Points"</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">size =</span> <span class="dv">9</span>, <span class="at">face =</span> <span class="st">"plain"</span>),</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">face =</span> <span class="st">"italic"</span>),</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">family =</span> <span class="st">"montserrat"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Turns out scoring is still up over the first games of the season (balanced where being five games into the 2025 season), but quite a bit less than 27%. 17.4% is still a pretty big jump in scoring through.</p>
+<p>And Indiana is still second in the Big Ten. The Hoosiers are scoring 47.8 points per game so far, less than a point behind Big Ten leaders USC.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
