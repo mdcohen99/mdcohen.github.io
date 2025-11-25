@@ -378,12 +378,12 @@ date  (1): Date
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data =</span> logs_summary <span class="sc">|&gt;</span> <span class="fu">filter</span>(Season <span class="sc">!=</span> <span class="st">"2025-2026"</span>), <span class="fu">aes</span>(<span class="at">x =</span> Season, <span class="at">y =</span> avg_ftpct), <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">data =</span> buzz_summary <span class="sc">|&gt;</span>  <span class="fu">filter</span>(Season <span class="sc">!=</span> <span class="st">"2025-2026"</span>), <span class="fu">aes</span>(<span class="at">x =</span> Season, <span class="at">y =</span> avg_ftpct), <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_hline(yintercept = 0.4439769, linetype = "dashed", color = "black") +</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.7065408</span> , <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Team free throw percentage"</span>,</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Buzz Williams teams are getting to the line, but not consistently hitting"</span>,</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Of Williams' three Aggie teams getting to the line a lot, all shot below the national average"</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Williams has had five of 11 included teams below the national average in free throw percentage."</span></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
@@ -406,7 +406,7 @@ date  (1): Date
 </div>
 </div>
 </div>
-<p>Most concerning, perhaps, are those three Texas A&amp;M teams at the end of Williams tenure in College Station. All three may have gotten to the three throw line a lot, but all three struggled to then put the ball in the basket which, generally, is indeed the goal. The prior two Williams teams were especially bad.</p>
+<p>OUTDATED TEXT BASED ON ORIGINAL CHART USING FIELD GOAL PCT AND NOT FREE THROW: Most concerning, perhaps, are those three Texas A&amp;M teams at the end of Williams tenure in College Station. All three may have gotten to the three throw line a lot, but all three struggled to then put the ball in the basket which, generally, is indeed the goal. The prior two Williams teams were especially bad.</p>
 <p>But this all poses a question of why Buzz Williams teams need to shoot so many free throws. According to field goal shooting data, Williams’ teams have consistently been poor shooting both on 2-point and 3-point field goals.</p>
 <div class="cell">
 <details class="code-fold">
