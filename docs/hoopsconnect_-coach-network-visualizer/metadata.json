@@ -1,0 +1,5 @@
+{
+  "name": "HoopsConnect: Coach Network Visualizer",
+  "description": "An interactive data visualization tool exploring the career paths, networks, and connections of collegiate basketball coaches based on historical employment data.",
+  "requestFramePermissions": []
+}
